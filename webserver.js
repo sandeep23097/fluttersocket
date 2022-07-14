@@ -21,7 +21,11 @@ wss.on('connection', function(ws, req) {
                 // TODO: Create login function
                 var loginData = '{"buffer":"'+data.buffer+'","status":"succes"}';
                 // Send data back to user
-                ws.send(loginData);
+               wss.clients.forEach(function each(client) {
+      if (client.readyState === WebSocket.OPEN) {
+        client.send(loginData);
+      }
+    });
             }
             
         }
