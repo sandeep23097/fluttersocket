@@ -20,11 +20,13 @@ wss.on('connection', function(ws, req) {
             if(data.cmd == "newData"){
                 // TODO: Create login function
                 var loginData = '{"buffer":"'+data.buffer+'","status":"succes"}';
+                console.log("incomming",data.buffer);
                 var binaryData = data.buffer;//new Uint8Array(data.buffer);
                 // Send data back to user
+                 console.log("outgoing",binaryData);
                wss.clients.forEach(function each(client) {
    
-        client.send(binaryData,{binary: true});
+        client.send(binaryData);
      
     });
             }
