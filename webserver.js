@@ -15,7 +15,7 @@ wss.on('connection', function(ws, req) {
     ws.on('message', message => { // If there is any message
         var datastring = message.toString();
         console.log(datastring);
-        if(datastring.charAt(0) == "{"){ // Check if message starts with '{' to check if it's json
+      /*  if(datastring.charAt(0) == "{"){ // Check if message starts with '{' to check if it's json
             datastring = datastring.replace(/\'/g, '"');
             var data = JSON.parse(datastring)
             if(data.cmd == "newData"){
@@ -32,6 +32,6 @@ wss.on('connection', function(ws, req) {
     });
             }
             
-        }
+        } */
     }) 
 })
