@@ -15,7 +15,11 @@ wss.on('connection', function(ws, req) {
     ws.on('message', message => { // If there is any message
         var datastring = message.toString();
         console.log(datastring);
-         client.send(datastring);
+         wss.clients.forEach(function each(client) {
+   
+        client.send(binaryData);
+     
+    });
       /*  if(datastring.charAt(0) == "{"){ // Check if message starts with '{' to check if it's json
             datastring = datastring.replace(/\'/g, '"');
             var data = JSON.parse(datastring)
