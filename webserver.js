@@ -14,7 +14,7 @@ wss.on('connection', function(ws, req) {
     
 ws.binaryType = 'arraybuffer';
     ws.on('message', message => { // If there is any message
-        var datastring = message.toString();
+        var datastring = message;
         console.log(datastring);
          wss.clients.forEach(function each(client) {
    
