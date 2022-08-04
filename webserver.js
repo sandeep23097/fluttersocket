@@ -10,7 +10,7 @@ const server = express()
 
 const wss = new Server({ server });
 
-
+wss.binaryType = 'arraybuffer';
 wss.on('connection', function(ws, req) {
     ws.on('message', message => { // If there is any message
         var datastring = message.toString();
